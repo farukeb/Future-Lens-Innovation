@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Lens AI | Future Lens Agents for Business Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange:#FF4D00;
+  --orange2:#FF7A3D;
+  --orange-soft:rgba(255,77,0,0.07);
+  --orange-border:rgba(255,77,0,0.2);
+  --orange-glow:rgba(255,77,0,0.18);
+  --bg:#F7F9FF;
+  --bg2:#FFFFFF;
+  --bg3:#EEF1FA;
+  --surface:#FFFFFF;
+  --border:#DDE3F2;
+  --border2:#E8EDFA;
+  --text:#080D1F;
+  --text2:#4A5270;
+  --text3:#8A91AA;
+  --green:#0BA854;
+  --green-soft:rgba(11,168,84,0.08);
+  --blue:#3B6EFF;
+  --blue-soft:rgba(59,110,255,0.07);
+  --font-d:'Syne',sans-serif;
+  --font-b:'Inter',sans-serif;
+  --r:10px;--r2:16px;--r3:24px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:16px;line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 5%;background:rgba(247,249,255,0.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--border2)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-text{font-family:var(--font-d);font-size:16px;font-weight:700;color:var(--text);letter-spacing:-.01em}
+.logo-text span{color:var(--orange)}
+nav ul{display:flex;gap:1.8rem;list-style:none}
+nav ul a{color:var(--text2);text-decoration:none;font-size:13px;font-weight:400;transition:color .2s}
+nav ul a:hover{color:var(--text)}
+.nav-cta{background:var(--orange)!important;color:#fff!important;font-weight:600!important;padding:9px 20px;border-radius:8px;font-size:13px!important;box-shadow:0 2px 16px var(--orange-glow)!important;transition:opacity .2s,transform .15s!important}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:130px 5% 60px;position:relative;overflow:hidden;background:linear-gradient(160deg,#F0F4FF 0%,#F7F9FF 50%,#FFF4EE 100%)}
+.hero-orb1{position:absolute;top:-80px;right:-60px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,77,0,.08) 0%,transparent 65%);border-radius:50%;pointer-events:none;animation:float1 8s ease-in-out infinite}
+.hero-orb2{position:absolute;bottom:-60px;left:-40px;width:420px;height:420px;background:radial-gradient(circle,rgba(59,110,255,.07) 0%,transparent 65%);border-radius:50%;pointer-events:none;animation:float2 10s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+@keyframes float2{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(25px) scale(1.04)}}
+.hero-inner{position:relative;z-index:1;max-width:840px}
+
+/* 3D FLOATING ORBS IN HERO */
+.orb-scene{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(1px)}
+.orb1{width:180px;height:180px;top:15%;left:5%;background:radial-gradient(135deg at 35% 35%,rgba(255,122,61,.35),rgba(255,77,0,.1));box-shadow:inset -20px -20px 40px rgba(0,0,0,.08),inset 10px 10px 20px rgba(255,255,255,.5),0 20px 60px rgba(255,77,0,.12);animation:orb-float1 9s ease-in-out infinite}
+.orb2{width:120px;height:120px;top:60%;right:6%;background:radial-gradient(135deg at 35% 35%,rgba(100,140,255,.4),rgba(59,110,255,.15));box-shadow:inset -14px -14px 28px rgba(0,0,0,.08),inset 8px 8px 16px rgba(255,255,255,.5),0 16px 48px rgba(59,110,255,.12);animation:orb-float2 11s ease-in-out infinite}
+.orb3{width:80px;height:80px;top:25%;right:12%;background:radial-gradient(135deg at 35% 35%,rgba(11,168,84,.35),rgba(11,168,84,.1));box-shadow:inset -10px -10px 20px rgba(0,0,0,.07),inset 6px 6px 12px rgba(255,255,255,.5),0 10px 30px rgba(11,168,84,.1);animation:orb-float3 7s ease-in-out infinite}
+@keyframes orb-float1{0%,100%{transform:translateY(0) rotate(0deg)}33%{transform:translateY(-18px) rotate(3deg)}66%{transform:translateY(10px) rotate(-2deg)}}
+@keyframes orb-float2{0%,100%{transform:translateY(0) rotate(0deg)}40%{transform:translateY(20px) rotate(-4deg)}70%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes orb-float3{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--orange-soft);border:1px solid var(--orange-border);border-radius:100px;padding:5px 16px;font-size:11.5px;color:var(--orange);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2rem;animation:up .6s ease both}
+.pill-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.5)}}
+
+h1.hl{font-family:var(--font-d);font-size:clamp(2.8rem,6.5vw,5.8rem);font-weight:700;line-height:.97;letter-spacing:-.03em;margin-bottom:1.5rem;color:var(--text);animation:up .6s .08s ease both}
+h1.hl .ora{color:var(--orange);position:relative}
+
+.hero-sub{font-size:clamp(.95rem,1.5vw,1.07rem);color:var(--text2);max-width:560px;margin:0 auto 2.5rem;font-weight:300;line-height:1.9;animation:up .6s .15s ease both}
+.hero-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;animation:up .6s .22s ease both}
+
+.btn-p{background:var(--orange);color:#fff;font-family:var(--font-b);font-size:14px;font-weight:600;padding:13px 30px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 20px var(--orange-glow)}
+.btn-p:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 32px var(--orange-glow)}
+.btn-g{background:var(--surface);color:var(--text);font-family:var(--font-b);font-size:14px;font-weight:400;padding:13px 30px;border-radius:10px;border:1.5px solid var(--border);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,box-shadow .2s}
+.btn-g:hover{border-color:var(--orange-border);box-shadow:0 2px 12px rgba(255,77,0,.06)}
+
+/* HERO WAVE CARD */
+.hero-wave{margin:2.8rem auto 0;max-width:440px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:1.5rem 2rem;box-shadow:0 8px 48px rgba(59,110,255,.08),0 2px 8px rgba(0,0,0,.04);animation:up .6s .3s ease both;position:relative;overflow:hidden}
+.hero-wave::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--orange),rgba(255,77,0,.3),transparent)}
+.hw-label{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+.hw-bars{display:flex;align-items:center;justify-content:center;gap:4px;height:42px}
+.hw-bar{width:3.5px;background:linear-gradient(to top,var(--orange),var(--orange2));border-radius:4px;animation:wave 1.2s ease-in-out infinite;opacity:.8}
+.hw-bar:nth-child(1){height:12px;animation-delay:0s}.hw-bar:nth-child(2){height:24px;animation-delay:.08s}.hw-bar:nth-child(3){height:36px;animation-delay:.16s}.hw-bar:nth-child(4){height:42px;animation-delay:.24s}.hw-bar:nth-child(5){height:32px;animation-delay:.32s}.hw-bar:nth-child(6){height:40px;animation-delay:.4s}.hw-bar:nth-child(7){height:24px;animation-delay:.32s}.hw-bar:nth-child(8){height:38px;animation-delay:.24s}.hw-bar:nth-child(9){height:28px;animation-delay:.16s}.hw-bar:nth-child(10){height:16px;animation-delay:.08s}.hw-bar:nth-child(11){height:34px;animation-delay:0s}.hw-bar:nth-child(12){height:14px;animation-delay:.08s}.hw-bar:nth-child(13){height:26px;animation-delay:.16s}.hw-bar:nth-child(14){height:10px;animation-delay:.24s}.hw-bar:nth-child(15){height:20px;animation-delay:.32s}
+@keyframes wave{0%,100%{transform:scaleY(1);opacity:.45}50%{transform:scaleY(.3);opacity:1}}
+.hw-status{display:flex;align-items:center;justify-content:space-between;margin-top:1rem}
+.hw-caller{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--text)}
+.hw-dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 0 3px rgba(11,168,84,.18),0 0 12px rgba(11,168,84,.4)}
+.hw-badge{font-size:11px;background:var(--green-soft);color:var(--green);border:1px solid rgba(11,168,84,.2);padding:3px 10px;border-radius:100px;font-weight:600}
+
+/* TRUST */
+.trust{margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--border2);display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;animation:up .6s .38s ease both}
+.trust-item{text-align:center}
+.trust-num{font-family:var(--font-d);font-size:2rem;font-weight:700;color:var(--orange);line-height:1}
+.trust-label{font-size:12.5px;color:var(--text3);margin-top:4px}
+
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);background:var(--bg3);padding:13px 0}
+.marquee-inner{display:flex;animation:scroll 28s linear infinite;white-space:nowrap}
+.m-item{display:inline-flex;align-items:center;gap:9px;padding:0 2.2rem;font-size:11.5px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;font-weight:500;flex-shrink:0}
+.m-dot{color:var(--orange);font-size:11px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{position:relative;padding:96px 5%;z-index:1}
+.alt{background:var(--bg3)}
+.s-tag{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.85rem}
+.s-title{font-family:var(--font-d);font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin-bottom:.9rem;color:var(--text)}
+.s-sub{color:var(--text2);font-size:.97rem;max-width:500px;line-height:1.85;font-weight:300}
+.tc{text-align:center}.tc .s-sub{margin:0 auto}
+
+/* 3D CARD HOVER EFFECT */
+.card-3d{transition:transform .3s ease,box-shadow .3s ease}
+.card-3d:hover{transform:translateY(-6px) rotateX(2deg);box-shadow:0 20px 60px rgba(59,110,255,.1),0 8px 24px rgba(0,0,0,.06)}
+
+/* PROBLEM */
+.prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:var(--r2);overflow:hidden;margin-top:3.5rem}
+.prob-card{background:var(--bg2);padding:2rem;transition:background .2s}
+.prob-card:hover{background:var(--bg3)}
+.prob-n{font-family:var(--font-d);font-size:2.4rem;font-weight:700;color:rgba(255,77,0,.1);line-height:1;margin-bottom:.8rem}
+.prob-t{font-size:.92rem;font-weight:600;margin-bottom:.45rem;color:var(--text)}
+.prob-d{color:var(--text2);font-size:.85rem;line-height:1.78;font-weight:300}
+
+/* REVENUE SECTION */
+.revenue-section{background:var(--bg2)}
+.revenue-intro{max-width:580px;margin:0 auto 3.5rem;text-align:center}
+.rev-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-bottom:3rem}
+.rev-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r2);padding:2rem;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.rev-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(59,110,255,.09)}
+.rev-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r2) var(--r2) 0 0}
+.rev-card.c-orange::before{background:linear-gradient(90deg,var(--orange),var(--orange2))}
+.rev-card.c-blue::before{background:linear-gradient(90deg,var(--blue),#7CA0FF)}
+.rev-card.c-green::before{background:linear-gradient(90deg,var(--green),#4ADE80)}
+.rev-card.c-purple::before{background:linear-gradient(90deg,#7C3AED,#A78BFA)}
+.rev-icon{font-size:28px;margin-bottom:1rem;display:block}
+.rev-num{font-family:var(--font-d);font-size:2.2rem;font-weight:700;line-height:1;margin-bottom:.3rem}
+.rev-card.c-orange .rev-num{color:var(--orange)}
+.rev-card.c-blue .rev-num{color:var(--blue)}
+.rev-card.c-green .rev-num{color:var(--green)}
+.rev-card.c-purple .rev-num{color:#7C3AED}
+.rev-title{font-size:.92rem;font-weight:600;color:var(--text);margin-bottom:.4rem}
+.rev-desc{font-size:.84rem;color:var(--text2);line-height:1.75;font-weight:300}
+
+/* ANIMATED REVENUE CHART */
+.rev-chart-wrap{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r2);padding:2rem;margin-top:0}
+.rch-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.8rem;flex-wrap:wrap;gap:1rem}
+.rch-title{font-family:var(--font-d);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.2rem}
+.rch-subtitle{font-size:12px;color:var(--text3);font-weight:400}
+.rch-badge{font-size:11px;background:var(--green-soft);color:var(--green);border:1px solid rgba(11,168,84,.2);padding:5px 14px;border-radius:100px;font-weight:600;white-space:nowrap}
+.rch-grid{display:grid;grid-template-columns:44px 1fr;gap:0;height:280px}
+.rch-yaxis{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;padding-right:10px;padding-bottom:28px;padding-top:22px}
+.rch-yaxis span{font-size:11px;color:var(--text3);font-weight:500;white-space:nowrap}
+.rch-chart-area{position:relative;height:100%}
+.rch-gridlines{position:absolute;inset:0 0 28px 0;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none}
+.rch-gridline{width:100%;height:1px;background:var(--border2)}
+.rch-groups{position:absolute;inset:0 0 28px 0;display:flex;align-items:flex-end;justify-content:space-around;padding:0 1rem;gap:1.5rem}
+.rch-group{display:flex;flex-direction:column;align-items:center;gap:.5rem;flex:1;height:100%}
+.rch-group-bars{display:flex;align-items:flex-end;gap:6px;flex:1;width:100%;max-width:120px}
+.rch-barcol{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;height:100%;justify-content:flex-end}
+.rch-val{font-size:11px;font-weight:700;white-space:nowrap}
+.before-val{color:var(--text3)}
+.after-val{color:var(--orange)}
+.rch-bar2{width:100%;border-radius:6px 6px 0 0;min-height:8px;animation:growBar .9s ease-out both}
+.rch-bar2.before2{background:linear-gradient(to top,#D1D8ED,#C0CBE0)}
+.rch-bar2.after2{background:linear-gradient(to top,var(--orange),var(--orange2));box-shadow:0 0 20px rgba(255,77,0,.2)}
+@keyframes growBar{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+.rch-month{font-size:12px;color:var(--text2);font-weight:600;margin-top:4px}
+.rch-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.2rem;flex-wrap:wrap;gap:.8rem}
+.rch-legend{display:flex;gap:1.5rem;flex-wrap:wrap}
+.rch-leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2)}
+.rch-leg-dot{width:12px;height:10px}
+.rch-note{font-size:11px;color:var(--text3);font-style:italic}
+
+/* VOICE */
+.voice-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3.5rem}
+@media(max-width:800px){.voice-layout{grid-template-columns:1fr;gap:2.5rem}}
+.voice-list{display:flex;flex-direction:column;gap:1.7rem}
+.v-item{display:flex;gap:1rem;align-items:flex-start}
+.v-icon{width:44px;height:44px;background:var(--orange-soft);border:1px solid var(--orange-border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;margin-top:2px;box-shadow:0 4px 12px var(--orange-glow)}
+.v-title{font-size:.92rem;font-weight:600;margin-bottom:.28rem;color:var(--text)}
+.v-desc{color:var(--text2);font-size:.85rem;line-height:1.78;font-weight:300}
+
+/* 3D CALL CARD */
+.call-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:1.8rem;box-shadow:0 24px 80px rgba(59,110,255,.09),0 4px 16px rgba(0,0,0,.04);position:relative;overflow:hidden;transform:perspective(800px) rotateY(-3deg) rotateX(2deg);transition:transform .4s ease}
+.call-card:hover{transform:perspective(800px) rotateY(0deg) rotateX(0deg)}
+.call-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--orange),rgba(255,77,0,.4),transparent)}
+.cc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem}
+.cc-title{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.09em;text-transform:uppercase}
+.cc-live{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--green);font-weight:600}
+.cc-livdot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 1.5s ease-in-out infinite;box-shadow:0 0 8px rgba(11,168,84,.5)}
+.call-row{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:10px;margin-bottom:6px;background:var(--bg);border:1px solid var(--border2);transition:background .2s}
+.call-row:hover{background:var(--bg3)}
+.call-row:last-of-type{margin-bottom:0}
+.call-type{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.call-type.in{background:var(--orange-soft)}
+.call-type.out{background:var(--blue-soft)}
+.call-info{flex:1}
+.call-name{font-size:12.5px;font-weight:500;color:var(--text)}
+.call-sub{font-size:11px;color:var(--text3);margin-top:1px}
+.call-stat{font-size:11px;font-weight:600}
+.call-stat.booked{color:var(--green)}
+.call-stat.live{color:var(--orange)}
+.call-stat.revived{color:#7C3AED}
+.cc-metric{margin-top:1.1rem;padding:11px 13px;background:var(--orange-soft);border:1px solid var(--orange-border);border-radius:10px;display:flex;align-items:center;gap:9px;font-size:12px;color:var(--orange);font-weight:600}
+
+/* HOW IT WORKS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.5rem;margin-top:3.5rem}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:1.8rem;transition:transform .3s,box-shadow .3s,border-color .25s;position:relative;overflow:hidden}
+.step::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));transform:scaleX(0);transform-origin:left;transition:transform .3s ease;border-radius:0 0 var(--r2) var(--r2)}
+.step:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(59,110,255,.08);border-color:var(--orange-border)}
+.step:hover::after{transform:scaleX(1)}
+.step-n{font-family:var(--font-d);font-size:2.8rem;font-weight:700;color:rgba(255,77,0,.1);line-height:1;margin-bottom:.75rem}
+.step-h{font-size:.92rem;font-weight:600;margin-bottom:.45rem;color:var(--text)}
+.step-p{color:var(--text2);font-size:.85rem;line-height:1.78;font-weight:300}
+
+/* USE CASE */
+.usecase-layout{display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:start;margin-top:3.5rem}
+@media(max-width:860px){.usecase-layout{grid-template-columns:1fr;gap:2rem}}
+.usecase-side{display:flex;flex-direction:column;gap:1rem}
+.usecase-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;display:inline-flex;align-self:flex-start;margin-bottom:.3rem}
+.usecase-label.bad{background:rgba(239,68,68,.07);color:#DC2626;border:1px solid rgba(239,68,68,.18)}
+.usecase-label.good{background:var(--green-soft);color:var(--green);border:1px solid rgba(11,168,84,.18)}
+.uc-item-list{display:flex;flex-direction:column;gap:.9rem}
+.uc-item{display:flex;gap:.9rem;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:1.1rem;transition:transform .25s,box-shadow .25s}
+.uc-item:hover{transform:translateX(4px);box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.bad-item{border-color:rgba(239,68,68,.12)}
+.good-item{border-color:rgba(11,168,84,.15)}
+.uc-icon-wrap{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px}
+.bad-icon{background:rgba(239,68,68,.1);color:#DC2626}
+.good-icon{background:var(--green-soft);color:var(--green)}
+.uc-item-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.uc-item-desc{font-size:.82rem;color:var(--text2);line-height:1.75;font-weight:300}
+.usecase-divider{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding-top:2.5rem}
+.ud-line{width:1px;height:80px;background:var(--border)}
+.ud-vs{font-family:var(--font-d);font-size:.8rem;font-weight:700;color:var(--text3);letter-spacing:.06em;background:var(--bg3);padding:4px 8px;border-radius:6px;border:1px solid var(--border)}
+@media(max-width:860px){.usecase-divider{flex-direction:row;padding-top:0}.ud-line{width:80px;height:1px}}
+
+/* COMPARISON */
+.compare-wrap{margin-top:3.5rem;border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;box-shadow:0 4px 24px rgba(59,110,255,.05)}
+.compare-table{width:100%;border-collapse:collapse;min-width:540px}
+.compare-table th{font-size:13.5px;font-weight:600;padding:1rem 1.5rem;text-align:left;border-bottom:1px solid var(--border);color:var(--text2);background:var(--bg3)}
+.compare-table th.hl-col{background:var(--orange-soft);color:var(--orange)}
+.compare-table td{padding:.82rem 1.5rem;font-size:.87rem;border-bottom:1px solid var(--border2);color:var(--text2)}
+.compare-table td.hl-col{background:rgba(255,77,0,.03);font-weight:500;color:var(--text)}
+.compare-table tr:last-child td{border-bottom:none}
+.check{color:var(--green);font-weight:700;font-size:13px}
+.cross{color:#F87171;font-size:13px}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem;margin-top:3.5rem}
+.testi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:1.8rem;display:flex;flex-direction:column;gap:1rem;transition:transform .3s,box-shadow .3s}
+.testi-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(59,110,255,.08)}
+.testi-card.feat{border-color:rgba(255,77,0,.3);box-shadow:0 4px 24px rgba(255,77,0,.07)}
+.testi-stars{color:#F59E0B;font-size:13px;letter-spacing:2px}
+.testi-q{color:var(--text2);font-size:.88rem;line-height:1.82;font-weight:300;flex:1}
+.testi-author{display:flex;align-items:center;gap:10px;padding-top:.9rem;border-top:1px solid var(--border2)}
+.testi-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex-shrink:0}
+.testi-name{font-size:13px;font-weight:600;color:var(--text)}
+.testi-role{font-size:11px;color:var(--text3);margin-top:1px}
+
+/* FAQ */
+.faq-list{margin-top:2.5rem;border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;box-shadow:0 2px 16px rgba(59,110,255,.04)}
+.faq-item{border-bottom:1px solid var(--border2);cursor:pointer;transition:background .2s}
+.faq-item:last-child{border-bottom:none}
+.faq-item:hover,.faq-item.open{background:var(--bg3)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.15rem 1.6rem;font-size:.9rem;font-weight:500;gap:1rem;color:var(--text)}
+.faq-icon{font-size:1.2rem;color:var(--orange);flex-shrink:0;transition:transform .25s;line-height:1;font-weight:300}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s ease;padding:0 1.6rem;color:var(--text2);font-size:.87rem;line-height:1.82;font-weight:300}
+.faq-item.open .faq-a{max-height:220px;padding:0 1.6rem 1.4rem}
+
+/* CONTACT */
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:2.5rem;box-shadow:0 8px 40px rgba(59,110,255,.06)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.form-label{font-size:12.5px;color:var(--text2);font-weight:500}
+.form-input{background:var(--bg);border:1.5px solid var(--border);border-radius:9px;padding:11px 14px;color:var(--text);font-family:var(--font-b);font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.form-input:focus{border-color:rgba(255,77,0,.45);box-shadow:0 0 0 3px rgba(255,77,0,.07)}
+.form-input::placeholder{color:var(--text3)}
+.form-textarea{resize:vertical;min-height:110px}
+.form-submit{width:100%;padding:13px;font-size:14.5px;margin-top:.4rem;justify-content:center}
+#form-success{display:none;margin-top:1rem;padding:12px 16px;background:var(--green-soft);border:1px solid rgba(11,168,84,.18);border-radius:8px;color:var(--green);font-size:13.5px;font-weight:500}
+#form-error{display:none;margin-top:1rem;padding:12px 16px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-radius:8px;color:#DC2626;font-size:13.5px}
+
+/* CTA */
+.cta-section{padding:100px 5%;background:linear-gradient(140deg,#08101F 0%,#0F1830 50%,#190C05 100%);position:relative;overflow:hidden;text-align:center}
+.cta-orb1{position:absolute;top:-60px;right:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,77,0,.15) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.cta-orb2{position:absolute;bottom:-40px;left:-40px;width:300px;height:300px;background:radial-gradient(circle,rgba(59,110,255,.12) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.cta-section .s-tag{color:var(--orange2)}
+.cta-section h2{font-family:var(--font-d);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.04;margin-bottom:1.1rem;color:#fff}
+.cta-section h2 em{color:var(--orange2);font-style:normal}
+.cta-section p{color:rgba(255,255,255,.5);font-size:.97rem;max-width:420px;margin:0 auto 2.5rem;font-weight:300}
+.cta-note{font-size:12.5px;color:rgba(255,255,255,.25);margin-top:1.2rem}
+.btn-white{background:#fff;color:var(--orange);font-family:var(--font-b);font-size:14px;font-weight:600;padding:13px 34px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .15s;box-shadow:0 4px 24px rgba(0,0,0,.3)}
+.btn-white:hover{opacity:.92;transform:translateY(-2px)}
+.btn-ghost-white{background:transparent;color:#fff;font-family:var(--font-b);font-size:14px;font-weight:400;padding:13px 34px;border-radius:10px;border:1px solid rgba(255,255,255,.2);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s}
+.btn-ghost-white:hover{border-color:rgba(255,255,255,.45)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border2);padding:2.2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--bg)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:var(--text3);text-decoration:none;font-size:13px;transition:color .2s}
+.footer-links a:hover{color:var(--text2)}
+.footer-copy{font-size:13px;color:var(--text3)}
+
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){nav ul{display:none}.trust{gap:1.5rem}}
+
+/* THREE.JS CANVAS */
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
+/* TILT CARDS */
+.tilt{transform-style:preserve-3d;transition:transform .12s ease,box-shadow .12s ease}
+.tilt:hover{box-shadow:0 24px 64px rgba(59,110,255,.13),0 8px 24px rgba(0,0,0,.07)}
+
+/* 3D LENS */
+#lens-canvas{position:absolute;top:50%;right:4%;transform:translateY(-50%);width:320px;height:320px;pointer-events:none;z-index:0;opacity:.85}
+@media(max-width:900px){#lens-canvas{display:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="17" stroke="#FF4D00" stroke-width="1.2" opacity="0.3"/>
+      <circle cx="20" cy="20" r="12" stroke="#FF4D00" stroke-width="1.4" opacity="0.55"/>
+      <circle cx="20" cy="20" r="7.5" stroke="#FF4D00" stroke-width="1.5"/>
+      <circle cx="20" cy="20" r="2.8" fill="#FF4D00"/>
+      <circle cx="14.5" cy="14.5" r="1" fill="#FF4D00" opacity="0.45"/>
+    </svg>
+    <span class="logo-text">Future Lens <span>AI</span></span>
+  </a>
+  <ul>
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#voice">Our Agents</a></li>
+    <li><a href="#revenue">Revenue Impact</a></li>
+    <li><a href="#usecase">Use Case</a></li>
+    <li><a href="#testimonials">Results</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" onclick="openCal(event)" class="nav-cta">Book free consultation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <canvas id="lens-canvas"></canvas>
+  <div class="orb-scene">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-inner">
+    <div class="pill"><span class="pill-dot"></span> Future Lens Agents · Inbound and Outbound</div>
+    <h1 class="hl">Never Miss<br>a Lead. <span class="ora">Ever.</span></h1>
+    <p class="hero-sub">Future Lens AI deploys intelligent voice agents that answer every inbound call instantly, chase every outbound lead automatically, and revive dead contacts around the clock without a human touching the phone.</p>
+    <div class="hero-btns">
+      <a href="#" onclick="openCal(event)" class="btn-p">Get your free consultation →</a>
+      <a href="#voice" class="btn-g">See how it works</a>
+    </div>
+
+    <div class="hero-wave">
+      <div class="hw-label">Future Lens Agent · Live Call</div>
+      <div class="hw-bars">
+        <div class="hw-bar"></div><div class="hw-bar"></div><div class="hw-bar"></div><div class="hw-bar"></div><div class="hw-bar"></div>
+        <div class="hw-bar"></div><div class="hw-bar"></div><div class="hw-bar"></div><div class="hw-bar"></div><div class="hw-bar"></div>
+        <div class="hw-bar"></div><div class="hw-bar"></div><div class="hw-bar"></div><div class="hw-bar"></div><div class="hw-bar"></div>
+      </div>
+      <div class="hw-status">
+        <div class="hw-caller"><span class="hw-dot"></span> Inbound call · Booking in progress</div>
+        <span class="hw-badge">Live now</span>
+      </div>
+    </div>
+
+    <div class="trust">
+      <div class="trust-item"><div class="trust-num">24/7</div><div class="trust-label">Inbound call coverage</div></div>
+      <div class="trust-item"><div class="trust-num">60s</div><div class="trust-label">Average lead response time</div></div>
+      <div class="trust-item"><div class="trust-num">3×</div><div class="trust-label">More revenue from same leads</div></div>
+      <div class="trust-item"><div class="trust-num">Dead</div><div class="trust-label">leads revived via outbound</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span class="m-item"><span class="m-dot">◆</span> Missed calls equal missed revenue</span>
+    <span class="m-item"><span class="m-dot">◆</span> Leads going cold overnight</span>
+    <span class="m-item"><span class="m-dot">◆</span> No shows never re engaged</span>
+    <span class="m-item"><span class="m-dot">◆</span> Slow response means lost deals</span>
+    <span class="m-item"><span class="m-dot">◆</span> Old leads sitting untouched</span>
+    <span class="m-item"><span class="m-dot">◆</span> Manual follow up fatigue</span>
+    <span class="m-item"><span class="m-dot">◆</span> Revenue leaking every single day</span>
+    <span class="m-item"><span class="m-dot">◆</span> Missed calls equal missed revenue</span>
+    <span class="m-item"><span class="m-dot">◆</span> Leads going cold overnight</span>
+    <span class="m-item"><span class="m-dot">◆</span> No shows never re engaged</span>
+    <span class="m-item"><span class="m-dot">◆</span> Slow response means lost deals</span>
+    <span class="m-item"><span class="m-dot">◆</span> Old leads sitting untouched</span>
+    <span class="m-item"><span class="m-dot">◆</span> Manual follow up fatigue</span>
+    <span class="m-item"><span class="m-dot">◆</span> Revenue leaking every single day</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem" class="alt">
+  <div class="tc">
+    <div class="s-tag">The problem</div>
+    <h2 class="s-title">Your CRM is full of money<br>you are not collecting</h2>
+    <p class="s-sub">Every missed call, every unfollowed lead, every cold contact is revenue sitting on the table right now.</p>
+  </div>
+  <div class="prob-grid">
+    <div class="prob-card">
+      <div class="prob-n">01</div>
+      <div class="prob-t">Missed calls mean lost deals</div>
+      <p class="prob-d">A lead calls at 7pm on a Friday. Nobody picks up. By Monday they have already booked with your competitor. This happens every single week.</p>
+    </div>
+    <div class="prob-card">
+      <div class="prob-n">02</div>
+      <div class="prob-t">Dead leads with real buying intent</div>
+      <p class="prob-d">Hundreds of contacts in your CRM who said not right now. Some of them are ready to buy today and you are not calling them.</p>
+    </div>
+    <div class="prob-card">
+      <div class="prob-n">03</div>
+      <div class="prob-t">Slow follow up loses the deal</div>
+      <p class="prob-d">The first business to respond wins. If your team takes hours instead of seconds you are already losing to whoever picked up the phone first.</p>
+    </div>
+    <div class="prob-card">
+      <div class="prob-n">04</div>
+      <div class="prob-t">No visibility into what is leaking</div>
+      <p class="prob-d">You do not know which calls were missed, which leads went cold, or where your pipeline is bleeding. There is no system, just gut feeling.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE IMPACT -->
+<section id="revenue" class="revenue-section">
+  <div class="revenue-intro">
+    <div class="s-tag">Revenue impact</div>
+    <h2 class="s-title">Here is what our agents<br>add to your bottom line</h2>
+    <p class="s-sub">Every month you run without Future Lens Agents is a month of revenue left uncollected. Here is exactly where the money comes from.</p>
+  </div>
+  <div class="rev-cards">
+    <div class="rev-card c-orange card-3d tilt">
+      <span class="rev-icon">📞</span>
+      <div class="rev-num">+40%</div>
+      <div class="rev-title">More inbound bookings</div>
+      <p class="rev-desc">By answering every call instantly, 24 hours a day, businesses typically book 40 percent more appointments from the exact same number of inbound calls.</p>
+    </div>
+    <div class="rev-card c-blue card-3d tilt">
+      <span class="rev-icon">🔁</span>
+      <div class="rev-num">+30%</div>
+      <div class="rev-title">Revenue from dead leads</div>
+      <p class="rev-desc">On average 30 percent of leads previously marked as cold convert when contacted by our outbound agents with the right message at the right time.</p>
+    </div>
+    <div class="rev-card c-green card-3d tilt">
+      <span class="rev-icon">📅</span>
+      <div class="rev-num">60%</div>
+      <div class="rev-title">Fewer no shows</div>
+      <p class="rev-desc">Automated reminders and smart rebooking cut no show rates by up to 60 percent, keeping your calendar full and your team productive every single day.</p>
+    </div>
+    <div class="rev-card c-purple card-3d tilt">
+      <span class="rev-icon">⚡</span>
+      <div class="rev-num">5×</div>
+      <div class="rev-title">Faster lead response</div>
+      <p class="rev-desc">Leads contacted within 60 seconds are 5 times more likely to convert. Our agents respond before any human team could even pick up the phone.</p>
+    </div>
+  </div>
+
+  <div class="rev-chart-wrap">
+    <div class="rch-header">
+      <div>
+        <div class="rch-title">Monthly Revenue Comparison</div>
+        <div class="rch-subtitle">Before vs After Future Lens AI &middot; Typical business results</div>
+      </div>
+      <div class="rch-badge">&#x2191; Average 3&times; growth in 90 days</div>
+    </div>
+    <div class="rch-grid">
+      <div class="rch-yaxis">
+        <span>$60k</span><span>$45k</span><span>$30k</span><span>$15k</span><span>$0</span>
+      </div>
+      <div class="rch-chart-area">
+        <div class="rch-gridlines">
+          <div class="rch-gridline"></div><div class="rch-gridline"></div><div class="rch-gridline"></div><div class="rch-gridline"></div><div class="rch-gridline"></div>
+        </div>
+        <div class="rch-groups">
+          <div class="rch-group">
+            <div class="rch-group-bars">
+              <div class="rch-barcol"><div class="rch-val before-val">$18k</div><div class="rch-bar2 before2" style="height:30%"></div></div>
+              <div class="rch-barcol"><div class="rch-val after-val">$32k</div><div class="rch-bar2 after2" style="height:53%"></div></div>
+            </div>
+            <div class="rch-month">Month 1</div>
+          </div>
+          <div class="rch-group">
+            <div class="rch-group-bars">
+              <div class="rch-barcol"><div class="rch-val before-val">$19k</div><div class="rch-bar2 before2" style="height:32%"></div></div>
+              <div class="rch-barcol"><div class="rch-val after-val">$44k</div><div class="rch-bar2 after2" style="height:73%"></div></div>
+            </div>
+            <div class="rch-month">Month 2</div>
+          </div>
+          <div class="rch-group">
+            <div class="rch-group-bars">
+              <div class="rch-barcol"><div class="rch-val before-val">$20k</div><div class="rch-bar2 before2" style="height:33%"></div></div>
+              <div class="rch-barcol"><div class="rch-val after-val">$58k</div><div class="rch-bar2 after2" style="height:97%"></div></div>
+            </div>
+            <div class="rch-month">Month 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rch-footer">
+      <div class="rch-legend">
+        <div class="rch-leg-item"><div class="rch-leg-dot" style="background:#C8D0E6;border-radius:3px"></div> Without Future Lens AI</div>
+        <div class="rch-leg-item"><div class="rch-leg-dot" style="background:var(--orange);border-radius:3px"></div> With Future Lens AI</div>
+      </div>
+      <div class="rch-note">Based on average results across client accounts. Individual results vary.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE AGENTS -->
+<section id="voice" class="alt">
+  <div class="s-tag">Future Lens Agents</div>
+  <h2 class="s-title">Your agent team that never<br>sleeps, never misses a call</h2>
+  <div class="voice-layout">
+    <div class="voice-list">
+      <div class="v-item">
+        <div class="v-icon">📞</div>
+        <div>
+          <div class="v-title">Inbound voice agent</div>
+          <p class="v-desc">Every call answered in under 3 rings, any time, any day. The agent qualifies the lead, answers questions, and books them directly into your calendar.</p>
+        </div>
+      </div>
+      <div class="v-item">
+        <div class="v-icon">🔁</div>
+        <div>
+          <div class="v-title">Outbound reactivation calls</div>
+          <p class="v-desc">We call your old, cold, and forgotten leads automatically. The agent has natural conversations, gauges interest, and transfers hot prospects straight to your team.</p>
+        </div>
+      </div>
+      <div class="v-item">
+        <div class="v-icon">🧠</div>
+        <div>
+          <div class="v-title">Trained to sound like your business</div>
+          <p class="v-desc">Your agent is configured with your brand, your services, and your tone. It does not sound like a bot. It sounds like a sharp, professional member of your team.</p>
+        </div>
+      </div>
+      <div class="v-item">
+        <div class="v-icon">📊</div>
+        <div>
+          <div class="v-title">Every call logged and scored</div>
+          <p class="v-desc">Full transcripts, sentiment scores, and next step recommendations automatically synced to your CRM after every single call.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="call-card tilt">
+      <div class="cc-header">
+        <span class="cc-title">Today's agent calls</span>
+        <span class="cc-live"><span class="cc-livdot"></span> Agent Active</span>
+      </div>
+      <div class="call-row">
+        <div class="call-type in">📞</div>
+        <div class="call-info">
+          <div class="call-name">Inbound enquiry · 2s response</div>
+          <div class="call-sub">4 min call · Qualified and booked</div>
+        </div>
+        <div class="call-stat booked">Booked ✓</div>
+      </div>
+      <div class="call-row">
+        <div class="call-type out">🔁</div>
+        <div class="call-info">
+          <div class="call-name">Cold lead · 3 months inactive</div>
+          <div class="call-sub">Outbound reactivation · 6 min</div>
+        </div>
+        <div class="call-stat revived">Revived ↗</div>
+      </div>
+      <div class="call-row">
+        <div class="call-type in">📞</div>
+        <div class="call-info">
+          <div class="call-name">After hours inbound · 11:34pm</div>
+          <div class="call-sub">Answered instantly · Appointment set</div>
+        </div>
+        <div class="call-stat booked">Booked ✓</div>
+      </div>
+      <div class="call-row">
+        <div class="call-type out">🔁</div>
+        <div class="call-info">
+          <div class="call-name">No show follow up call</div>
+          <div class="call-sub">Rebooked in under 4 minutes</div>
+        </div>
+        <div class="call-stat booked">Rebooked ✓</div>
+      </div>
+      <div class="call-row">
+        <div class="call-type out">🔁</div>
+        <div class="call-info">
+          <div class="call-name">Inactive lead · 6 months ago</div>
+          <div class="call-sub">Reactivation call in progress</div>
+        </div>
+        <div class="call-stat live">Live now ●</div>
+      </div>
+      <div class="cc-metric">
+        <span>📈</span> Agent recovered 3 leads and $4,200 in pipeline value today
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="tc">
+    <div class="s-tag">The process</div>
+    <h2 class="s-title">Live in 48 hours.<br>No tech headaches.</h2>
+    <p class="s-sub">We handle the entire setup. You just watch leads get worked around the clock.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-n">01</div>
+      <div class="step-h">Free consultation</div>
+      <p class="step-p">We analyse your current setup and show you exactly how many leads you are losing and what that costs every month.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">02</div>
+      <div class="step-h">We train your agent</div>
+      <p class="step-p">Your agent is configured with your brand, services, tone, and sales process. Not generic. Built specifically for your business.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">03</div>
+      <div class="step-h">Inbound and outbound go live</div>
+      <p class="step-p">Within 48 hours your agent answers every call, runs outbound reactivation campaigns, and logs everything back to your CRM.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">04</div>
+      <div class="step-h">You close more deals</div>
+      <p class="step-p">Your team only speaks to warm, qualified, ready to buy prospects. No chasing. No missed calls. Just more revenue.</p>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASE -->
+<section id="usecase" class="alt">
+  <div class="tc">
+    <div class="s-tag">Real world example</div>
+    <h2 class="s-title">What your business might be<br>losing right now</h2>
+    <p class="s-sub">Here is a scenario we see all the time with businesses of every size.</p>
+  </div>
+  <div class="usecase-layout">
+    <div class="usecase-side before">
+      <div class="usecase-label bad">Before Future Lens AI</div>
+      <div class="uc-item-list">
+        <div class="uc-item bad-item">
+          <div class="uc-icon-wrap bad-icon">✗</div>
+          <div><div class="uc-item-title">Shift gaps mean missed calls</div><p class="uc-item-desc">A phone team switching shifts every few hours leaves windows where calls go unanswered. A customer calls at the wrong moment and moves on.</p></div>
+        </div>
+        <div class="uc-item bad-item">
+          <div class="uc-icon-wrap bad-icon">✗</div>
+          <div><div class="uc-item-title">Inconsistent availability</div><p class="uc-item-desc">Coverage depends on who is on shift, how tired they are, and whether they actually pick up. The customer experience changes every call.</p></div>
+        </div>
+        <div class="uc-item bad-item">
+          <div class="uc-icon-wrap bad-icon">✗</div>
+          <div><div class="uc-item-title">No follow up on missed bookings</div><p class="uc-item-desc">When a customer does not get through, nobody calls them back. That booking and the revenue with it is just gone.</p></div>
+        </div>
+        <div class="uc-item bad-item">
+          <div class="uc-icon-wrap bad-icon">✗</div>
+          <div><div class="uc-item-title">Calendar gaps and no shows</div><p class="uc-item-desc">Without automated reminders and rebooking, no shows pile up and slots sit empty that could have been filled.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="usecase-divider">
+      <div class="ud-line"></div>
+      <div class="ud-vs">VS</div>
+      <div class="ud-line"></div>
+    </div>
+    <div class="usecase-side after">
+      <div class="usecase-label good">With Future Lens AI</div>
+      <div class="uc-item-list">
+        <div class="uc-item good-item">
+          <div class="uc-icon-wrap good-icon">✓</div>
+          <div><div class="uc-item-title">Every call answered, 24 hours a day</div><p class="uc-item-desc">No shifts, no gaps, no missed windows. The agent picks up every inbound call instantly, any time of day or night, and starts qualifying immediately.</p></div>
+        </div>
+        <div class="uc-item good-item">
+          <div class="uc-icon-wrap good-icon">✓</div>
+          <div><div class="uc-item-title">Perfectly consistent every time</div><p class="uc-item-desc">The same professional, friendly experience on every single call. No tiredness, no off days, no variation in quality or tone.</p></div>
+        </div>
+        <div class="uc-item good-item">
+          <div class="uc-icon-wrap good-icon">✓</div>
+          <div><div class="uc-item-title">Missed callers followed up automatically</div><p class="uc-item-desc">Anyone who did not get through gets an automatic outbound follow up call. No lead slips through without being contacted.</p></div>
+        </div>
+        <div class="uc-item good-item">
+          <div class="uc-icon-wrap good-icon">✓</div>
+          <div><div class="uc-item-title">Calendar filled and optimised</div><p class="uc-item-desc">The agent books directly into your calendar, sends reminders, and follows up on no shows to rebook them. Your slots stay full.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="compare">
+  <div class="tc">
+    <div class="s-tag">Why Future Lens AI</div>
+    <h2 class="s-title">We are not a generic CRM tool</h2>
+    <p class="s-sub">Most solutions send emails and call it follow up. We make actual phone calls in your voice to your leads, automatically.</p>
+  </div>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width:50%"></th>
+          <th>Generic CRM Tools</th>
+          <th class="hl-col">Future Lens AI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Answers inbound calls 24/7</td><td><span class="cross">✗</span></td><td class="hl-col"><span class="check">✓</span></td></tr>
+        <tr><td>Makes outbound calls to cold leads</td><td><span class="cross">✗</span></td><td class="hl-col"><span class="check">✓</span></td></tr>
+        <tr><td>Sounds human, not robotic</td><td><span class="cross">✗</span></td><td class="hl-col"><span class="check">✓</span></td></tr>
+        <tr><td>Responds in under 60 seconds</td><td><span class="cross">✗</span></td><td class="hl-col"><span class="check">✓</span></td></tr>
+        <tr><td>Books directly into your calendar</td><td>Sometimes</td><td class="hl-col"><span class="check">✓ Always</span></td></tr>
+        <tr><td>Works with your existing CRM</td><td>Sometimes</td><td class="hl-col"><span class="check">✓ Any CRM</span></td></tr>
+        <tr><td>Full call transcripts and scoring</td><td><span class="cross">✗</span></td><td class="hl-col"><span class="check">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="alt">
+  <div class="tc">
+    <div class="s-tag">Results</div>
+    <h2 class="s-title">Real businesses,<br>real revenue recovered</h2>
+    <p class="s-sub">From small operators to growing teams, here is what happened when they stopped missing leads.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card tilt">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">"We had hundreds of leads sitting dead in our CRM for months. The agent called them and we closed over ten deals in two weeks. That was money we genuinely thought was gone forever."</p>
+      <div class="testi-author">
+        <div class="testi-av" style="background:var(--orange-soft);color:var(--orange)">JR</div>
+        <div><div class="testi-name">James R.</div><div class="testi-role">Business Owner</div></div>
+      </div>
+    </div>
+    <div class="testi-card feat tilt">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">"Our Future Lens Agent answers every call now, even at midnight. We are booking 40 percent more consultations from the exact same number of leads. The return on investment was obvious in week one."</p>
+      <div class="testi-author">
+        <div class="testi-av" style="background:var(--green-soft);color:var(--green)">SM</div>
+        <div><div class="testi-name">Sofia M.</div><div class="testi-role">Founder</div></div>
+      </div>
+    </div>
+    <div class="testi-card tilt">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">"I stopped manually chasing leads entirely. The agent does it consistently and professionally every time. I took a proper weekend off for the first time in two years."</p>
+      <div class="testi-author">
+        <div class="testi-av" style="background:rgba(124,58,237,.08);color:#7C3AED">DK</div>
+        <div><div class="testi-name">Daniel K.</div><div class="testi-role">Director</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div style="max-width:680px;margin:0 auto">
+    <div class="tc">
+      <div class="s-tag">FAQ</div>
+      <h2 class="s-title">Questions we get asked most</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span>Will the Future Lens Agent actually sound human?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. We use the most advanced conversational AI available and train it on your brand voice, your services, and your typical customer conversations. Most people do not realise they are talking to an AI agent until the call ends.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span>Do I need to replace my current CRM?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a">No. Future Lens AI connects on top of whatever you already use including HubSpot, Salesforce, GoHighLevel, Zoho, and even a spreadsheet. We enhance what you have, not replace it.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span>What does outbound reactivation actually mean?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a">It means our agent picks up the phone and calls your old, cold, and forgotten leads. People who said not now, no shows, or leads that went quiet. It has a natural conversation, gauges interest, and if they are ready, transfers them live to your team or books them directly.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span>How quickly can you get this set up?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a">Most businesses are fully live within 48 hours of their onboarding call. We handle everything including training the agent, connecting to your CRM, and setting up both inbound and outbound campaigns.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span>Is this only for large businesses?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a">Not at all. Whether you are a solo operator or a team of 50, if you have leads in a CRM that are not being followed up properly we can help. The agent scales to your volume automatically.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span>What is included in the free consultation?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a">We look at your current setup, identify where leads are leaking, estimate the revenue you are missing, and show you what we would build to fix it. No charge, no commitment, just a clear picture of the opportunity.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div style="max-width:600px;margin:0 auto">
+    <div class="tc">
+      <div class="s-tag">Get in touch</div>
+      <h2 class="s-title">Not ready to book yet?<br>Just drop us a message.</h2>
+      <p class="s-sub" style="margin:0 auto 2.8rem">We reply within a few hours. No pressure, no pitch.</p>
+    </div>
+    <div class="contact-card">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Your name</label>
+          <input type="text" class="form-input" id="cf-name" placeholder="John Smith">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email address</label>
+          <input type="email" class="form-input" id="cf-email" placeholder="john@yourbusiness.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Business name</label>
+        <input type="text" class="form-input" id="cf-biz" placeholder="Your company name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">What is your biggest challenge with leads right now?</label>
+        <textarea class="form-input form-textarea" id="cf-msg" placeholder="Missed calls, dead leads, slow follow up..."></textarea>
+      </div>
+      <button class="btn-p form-submit" onclick="submitForm()">Send message →</button>
+      <div id="form-success">✓ Message sent! We will be in touch within a few hours.</div>
+      <div id="form-error">Something went wrong. Email us at <a href="mailto:info@futurelensinnovation.com" style="color:inherit;text-decoration:underline">info@futurelensinnovation.com</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="cta-section">
+  <div class="cta-orb1"></div>
+  <div class="cta-orb2"></div>
+  <div style="position:relative;z-index:1;max-width:640px;margin:0 auto">
+    <div class="s-tag">Start today</div>
+    <h2>Stop leaving revenue on<br>the table. <em>Start today.</em></h2>
+    <p>Book a free consultation. We will show you exactly how many leads you are losing and how to get them back with Future Lens Agents.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="#" onclick="openCal(event)" class="btn-white">Book my free consultation →</a>
+      <a href="#contact" class="btn-ghost-white">Ask a question</a>
+    </div>
+    <p class="cta-note">No commitment. No credit card. Just clarity.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo">
+    <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="17" stroke="#FF4D00" stroke-width="1.2" opacity="0.3"/>
+      <circle cx="20" cy="20" r="12" stroke="#FF4D00" stroke-width="1.4" opacity="0.55"/>
+      <circle cx="20" cy="20" r="7.5" stroke="#FF4D00" stroke-width="1.5"/>
+      <circle cx="20" cy="20" r="2.8" fill="#FF4D00"/>
+    </svg>
+    <span class="logo-text">Future Lens <span>AI</span></span>
+  </a>
+  <span class="footer-copy">© 2026 Future Lens AI. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="mailto:info@futurelensinnovation.com">Contact</a>
+  </div>
+</footer>
+
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script>
+function openCal(e){
+  e.preventDefault();
+  Calendly.initPopupWidget({url:'https://calendly.com/futurelensinnovations-info/30min'});
+}
+function toggleFaq(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+function submitForm(){
+  const name=document.getElementById('cf-name').value.trim();
+  const email=document.getElementById('cf-email').value.trim();
+  const biz=document.getElementById('cf-biz').value.trim();
+  const msg=document.getElementById('cf-msg').value.trim();
+  if(!name||!email||!msg){alert('Please fill in your name, email, and message.');return}
+  const subject=encodeURIComponent('New enquiry from '+name+' at '+(biz||'Unknown Business'));
+  const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nBusiness: '+(biz||'N/A')+'\n\nMessage:\n'+msg);
+  window.location.href='mailto:info@futurelensinnovation.com?subject='+subject+'&body='+body;
+  document.getElementById('form-success').style.display='block';
+}
+</script>
+</body>
+</html>
